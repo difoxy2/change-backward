@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<body style = "background-color:#F1948A">
+
+
+<table id="myTable">
+  <tr>
+	<td><textarea id="myTextarea" rows="49" cols="40" style = "background-color:#F2D7D5"></textarea></td>
+	<td><textarea id="myTextarea2" rows="39" cols="15" style="font-family: calibri;font-size: 15px; background-color:#F2D7D5"></textarea>
+</td>
+  </tr>
+</table>  
+    <br><button type="button" onclick="backwards()">Try it</button><button onclick="copy()">Copy text</button><br><textarea id="myTextarea3" rows="7" cols="15" style="font-family: calibri;font-size: 15px; background-color:#F2D7D5"></textarea>
+
+<div id="myDIV2"></div>
+
+    
+    
+    
+    
+
+<script>
+var nooferror=0;
+
+//backward checking
+function backwards() {
+	nooferror=0;
+	document.getElementById("myTextarea3").value = "";
+
+	var str = document.getElementById("myTextarea").value; 
+	var splitTextarea2 = document.getElementById("myTextarea2").value.split(/\n+/);
+
+	for(var i=0; i<splitTextarea2.length; i++){
+		if(!str.includes(splitTextarea2[i])){
+			document.getElementById("myTextarea3").value += splitTextarea2[i] +'\n';
+			nooferror += 1;
+		}
+	}
+	
+	if(nooferror==0){document.getElementById("myTextarea3").value = "No Errors found!";}
+}
+
+//copy function
+function copy() {
+  var copyText = document.getElementById("myTextarea3");
+  copyText.select();
+  document.execCommand("copy");
+}
+    
+
+    
+</script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>
+
